@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- icon -->
+    <link rel="icon" href="img/icon.png" type="image/x-icon" />
+    <title>Casa Vista Hotel</title>
+    <link rel="stylesheet" href="styles/general.css" />
+    <link rel="stylesheet" href="styles/header.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/footer.css" />
+    <link rel="stylesheet" href="styles/animation.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-primary">
+    <main class="slider">
+      <header class="header">
+        <section class="header-left">
+          <img class="header-logo" src="img/logo-header.png" alt="brand logo" />
+        </section>
+
+        <section class="header-right" id="header-links">
+          <a class="text-primary font-md1" href="#home">Home</a>
+          <a class="text-primary font-md1" href="#amenities">Amenities</a>
+          <a class="text-primary font-md1" href="#hotels">Hotels</a>
+          <a class="text-primary font-md1" href="#about-contact">About</a>
+          <a class="text-primary font-md1" href="#about-contact">Contact</a>
+        </section>
+      </header>
+
+      <div class="slide">
+        <img
+          src="https://images.unsplash.com/photo-1615460549969-36fa19521a4f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="Image1"
+        />
+      </div>
+      <div class="slide">
+        <img
+          src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="Image2"
+        />
+      </div>
+      <div class="slide">
+        <img
+          src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="Image3"
+        />
+      </div>
+      <div class="slide">
+        <img
+          src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="Image4"
+        />
+      </div>
+      <div class="slide">
+        <img
+          src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="Image4"
+        />
+      </div>
+      <div class="slide">
+        <img
+          src="https://plus.unsplash.com/premium_photo-1675745329378-5573c360f69f?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="Image5"
+        />
+      </div>
+      <div class="slide">
+        <img
+          src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="Image6"
+        />
+      </div>
+      <div class="slide">
+        <img
+          src="https://plus.unsplash.com/premium_photo-1682377521564-b180edfc960c?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="Image7"
+        />
+      </div>
+      <div class="slide">
+        <img
+          src="https://images.unsplash.com/photo-1631049035634-c04c637651b1?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="Image8"
+        />
+      </div>
+      <div class="slide">
+        <img
+          src="https://images.unsplash.com/photo-1580041065738-e72023775cdc?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="Image9"
+        />
+      </div>
+
+      <button class="btn-slide prev">
+        <i class="fas fa-3x fa-chevron-circle-left"></i>
+      </button>
+      <button class="btn-slide next">
+        <i class="fas fa-3x fa-chevron-circle-right"></i>
+      </button>
+
+      <div class="dots-container">
+        <span class="dot active" data-slide="0"></span>
+        <span class="dot" data-slide="1"></span>
+        <span class="dot" data-slide="2"></span>
+        <span class="dot" data-slide="3"></span>
+        <span class="dot" data-slide="4"></span>
+        <span class="dot" data-slide="5"></span>
+        <span class="dot" data-slide="6"></span>
+        <span class="dot" data-slide="7"></span>
+        <span class="dot" data-slide="8"></span>
+        <span class="dot" data-slide="9"></span>
+      </div>
+
+      <div class="offer-container">
+        <div class="offer-wrapper">
+          <div class="offer-image">
+            <img src="./img/homepage/breakfast.png" alt="" />
+          </div>
+          <div class="font-md2 text-primary offer-title">
+            Taste our <span class="text-secondary">signature breakfast</span>
+          </div>
+        </div>
+        <div class="offer-wrapper">
+          <div class="offer-image">
+            <img src="./img/homepage/hotel.png" alt="" />
+          </div>
+          <div class="font-md2 text-primary offer-title">
+            Experience a <span class="text-secondary">luxury hotel</span>
+          </div>
+        </div>
+        <div class="offer-wrapper">
+          <div class="offer-image">
+            <img src="./img/homepage/eat.png" alt="" />
+          </div>
+          <div class="font-md2 text-secondary offer-title">
+            Anywhere you can dine
+          </div>
+        </div>
+        <div class="offer-wrapper">
+          <div class="offer-image">
+            <img src="./img/homepage/bed.png" alt="" />
+          </div>
+          <div class="font-md2 text-primary offer-title">
+            Try our <span class="text-secondary">best-selling hotels</span>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- home  -->
+    <div class="home-container bg-primary" id="home">
+      <div class="home-left-side">
+        <span class="text-tertiary"
+          >Experience Filipino Hospitality at its Finest</span
+        >
+        <div class="title font-lg4 text-tertiary">
+          Welcome to <br />
+          Casa Vista
+        </div>
+        <div class="description-text text-tertiary">
+          Located at the heart of the Philippines, Casa Vista presents a unique
+          fusion of comfort, sophistication, and authentic Filipino hospitality.
+          <br /><br />
+          From the moment you step foot into our welcoming abode, you'll be
+          embraced by the warmth and allure of Filipino culture. Our
+          contemporary and chic accommodations offer a sanctuary where you can
+          relax and rejuvenate amidst tranquil surroundings.
+          <br /><br />
+          At Casa Vista, we take pride in delivering outstanding amenities and
+          personalized attention to ensure your stay exceeds all expectations.
+          <br /><br />
+          Whether you're visiting for business or leisure, our dedicated team is
+          devoted to crafting an experience that leaves a lasting impression.
+          <br /><br />
+          Discover the wonders of the Philippines with Casa Vista as your
+          trusted guide. From immersing yourself in local attractions to
+          indulging in delectable cuisine at our in-house restaurants, there's
+          something to captivate every traveler's heart.
+          <br /><br />
+          We cordially invite you to uncover the enchantment of Casa Vista and
+          forge cherished memories amidst the splendor of the Philippines.
+        </div>
+        <div class="button-container">
+          <a class="btn-secondary" href="./login/login.html">
+            <button class="book-now-button">
+              <span>BOOK NOW</span>
+            </button>
+          </a>
+        </div>
+      </div>
+      <div class="home-right-side">
+        <img src="./img/homepage/circle-yellow.png" alt="" />
+      </div>
+    </div>
+
+    <!-- amenities -->
+    <div class="amenities-container design" id="amenities">
+      <div class="amenities-title font-lg2 text-tertiary">
+        Exclusive Amenities at Casa Vista
+      </div>
+      <div class="card">
+        <!-- Image 1 -->
+        <div class="card_part card_part-one">
+          <div class="text-container">
+            <div class="card-title text-secondary font-lg1">
+              Enjoy Breakfast
+            </div>
+            <div class="card-description text-primary">
+              Experience the joy of a complimentary breakfast, crafted with care
+              and served fresh every morning, to kickstart your day with
+              delight.
+            </div>
+          </div>
+        </div>
+        <!-- Image 2 -->
+        <div class="card_part card_part-two">
+          <div class="text-container">
+            <div class="card-title text-secondary font-lg1">Meeting Rooms</div>
+            <div class="card-description text-primary">
+              Elevate your business gatherings with our state-of-the-art Meeting
+              Rooms feature, designed to inspire creativity, collaboration, and
+              success in every session.
+            </div>
+          </div>
+        </div>
+        <!-- Image 3 -->
+        <div class="card_part card_part-three">
+          <div class="text-container">
+            <div class="card-title text-secondary font-lg1">
+              Desk and workspaces
+            </div>
+            <div class="card-description text-primary">
+              Enhance your workflow with our meticulously curated desk and
+              workspace feature, offering comfort, connectivity, and an
+              inspiring environment to fuel your focus and creativity.
+            </div>
+          </div>
+        </div>
+        <!-- Image 4 -->
+        <div class="card_part card_part-four">
+          <div class="text-container">
+            <div class="card-title text-secondary font-lg1">Swimming Pool</div>
+            <div class="card-description text-primary">
+              Take a dip in our awesome pool. It's the perfect spot to chill
+              out, relax, and enjoy some sunshine.
+            </div>
+          </div>
+        </div>
+        <!-- Image 5 -->
+        <div class="card_part card_part-five">
+          <div class="text-container">
+            <div class="card-title text-secondary font-lg1">Parking</div>
+            <div class="card-description text-primary">
+              Park hassle-free with our convenient parking feature, ensuring
+              easy access and peace of mind throughout your stay.
+            </div>
+          </div>
+        </div>
+        <!-- Image 6 -->
+        <div class="card_part card_part-six">
+          <div class="text-container text-primary">
+            <div class="card-title text-secondary font-lg1">Pet Friendly</div>
+            <div class="card-description text-primary">
+              Bring your furry friends along and enjoy our pet-friendly
+              environment, where tails wag and paws play amidst warm hospitality
+              and comfortable accommodations.
+            </div>
+          </div>
+        </div>
+        <!-- Image 7 -->
+        <div class="card_part card_part-seven">
+          <div class="text-container">
+            <div class="card-title text-secondary font-lg1">Fitness Center</div>
+            <div class="card-description text-primary">
+              Stay active and energized during your stay with complimentary
+              access to our fully-equipped fitness center.
+            </div>
+          </div>
+        </div>
+        <!-- Image 8 -->
+        <div class="card_part card_part-eight">
+          <div class="text-container">
+            <div class="card-title text-secondary font-lg1">Restaurant</div>
+            <div class="card-description text-primary">
+              Enjoy exquisite cuisine at our restaurant, where delicious dishes
+              and top-notch service guarantee a memorable dining experience for
+              everyone.
+            </div>
+          </div>
+        </div>
+        <!-- Image 9 -->
+        <div class="card_part card_part-nine">
+          <div class="text-container">
+            <div class="card-title text-secondary font-lg1">Bar</div>
+            <div class="card-description text-primary">
+              Relax and socialize in our cozy bar, serving handcrafted
+              cocktails, fine wines, and refreshing beverages in a laid-back
+              setting ideal for unwinding after a day of adventures or meetings.
+            </div>
+          </div>
+        </div>
+        <!-- Image 10 -->
+        <div class="card_part card_part-ten">
+          <div class="text-container">
+            <div class="card-title text-secondary font-lg1">Bicycle Rental</div>
+            <div class="card-description text-primary">
+              Enjoy the freedom to explore at your leisure, soaking in the
+              scenery and making memories along the way.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Room and suites -->
+    <div class="rooms-and-suites-container bg-primary" id="hotels">
+      <div class="room-and-suites-title font-lg2 text-tertiary">
+        Exclusive Hotels & Rooms
+      </div>
+      <div class="container">
+        <div class="slider99">
+          <!-- IMAGE 1 -->
+          <div class="slide99">
+            <div class="slide99-img-container">
+              <img
+                src="https://images.pexels.com/photos/2034335/pexels-photo-2034335.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                alt="Slide 1"
+              />
+            </div>
+            <div class="text-container2">
+              <div class="font-lg2 room-title text-tertiary">SUNSET INN</div>
+              <div class="text-tertiary font-md1 room-description">
+                Welcome to Sunset Inn, a seaside retreat offering stunning views
+                and top-notch amenities. Located at 123 Ocean Drive, Miami, our
+                resort provides the perfect escape with its serene atmosphere
+                and panoramic ocean vistas.
+              </div>
+              <div class="room-specs font-md1">
+                <div>
+                  <i class="bx bx-wifi"></i> High-speed Wi-Fi connection
+                </div>
+                <div><i class="bx bxs-user"></i> Max guest : 2</div>
+                <div><i class="bx bxs-bed"></i> Bed size(s) : King/Twin</div>
+                <div><i class="bx bxs-door-open"></i> Room size : 34m²</div>
+              </div>
+
+              <div class="button-container">
+                <a href="./login/login.html">
+                  <button class="book-now-button-small">
+                    <span>BOOK NOW</span>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- IMAGE 2 -->
+          <div class="slide99">
+            <div class="slide99-img-container">
+              <img
+                src="https://images.pexels.com/photos/5028927/pexels-photo-5028927.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                alt="Slide 2"
+              />
+            </div>
+
+            <div class="text-container2">
+              <div class="font-lg2 room-title text-tertiary">MOUNTAIN VIEW</div>
+              <div class="text-tertiary font-md1">
+                Discover Mountain View at 456 Mountain Rd, Denver. Embrace the
+                Rockies' beauty and enjoy luxury accommodations with exclusive
+                ski access for a truly relaxing adventure.
+              </div>
+              <div class="room-specs font-md1">
+                <div>
+                  <i class="bx bx-wifi"></i> High-speed Wi-Fi connection
+                </div>
+                <div><i class="bx bxs-user"></i> Max guest : 2</div>
+                <div><i class="bx bxs-bed"></i> Bed size(s) : King/Twin</div>
+                <div><i class="bx bxs-door-open"></i> Room size : 34m²</div>
+                <div><i class="bx bxs-bath"></i> Luxury bathroom amenities</div>
+                <div><i class="bx bxs-checkbox-minus"></i> Living room</div>
+              </div>
+
+              <div class="button-container">
+                <a href="./login/login.html">
+                  <button class="book-now-button-small">
+                    <span>BOOK NOW</span>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- IMAGE 3 -->
+          <div class="slide99">
+            <div class="slide99-img-container">
+              <img
+                src="https://images.pexels.com/photos/122244/pexels-photo-122244.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                alt="Slide 3"
+              />
+            </div>
+            <div class="text-container2">
+              <div class="font-lg2 room-title text-tertiary">City Central</div>
+              <div class="text-tertiary font-md1">
+                Welcome to City Central at 789 Downtown Blvd, NY, where urban
+                sophistication meets comfort. Immerse yourself in the vibrant
+                energy of NYC while enjoying the convenience and luxury of our
+                centrally located resort.
+              </div>
+              <div class="room-specs font-md1">
+                <div><i class="bx bxs-bath"></i> Jacuzzi</div>
+                <div>
+                  <i class="bx bx-wifi"></i> High-speed Wi-Fi connection
+                </div>
+                <div><i class="bx bxs-user"></i> Max guest : 2</div>
+                <div><i class="bx bxs-bed"></i> Bed size(s) : King</div>
+                <div><i class="bx bxs-door-open"></i> Room size : 39m²</div>
+                <div><i class="bx bxs-bath"></i> Bathtub & Shower</div>
+              </div>
+
+              <div class="button-container">
+                <a href="./login/login.html">
+                  <button class="book-now-button-small">
+                    <span>BOOK NOW</span>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- IMAGE 4 -->
+          <div class="slide99">
+            <div class="slide99-img-container">
+              <img
+                src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Slide 3"
+              />
+            </div>
+            <div class="text-container2">
+              <div class="font-lg2 room-title text-tertiary">
+                URBAN OASIS HOTEL
+              </div>
+              <div class="text-tertiary font-md1">
+                Escape the hustle and bustle in this tranquil retreat, where
+                contemporary elegance meets urban allure.
+              </div>
+              <div class="room-specs font-md1">
+                <div><i class="bx bxs-bath"></i> Jacuzzi</div>
+                <div>
+                  <i class="bx bx-wifi"></i> High-speed Wi-Fi connection
+                </div>
+                <div><i class="bx bxs-user"></i> Max guest : 2</div>
+                <div><i class="bx bxs-bed"></i> Bed size(s) : King</div>
+                <div>
+                  <i class="bx bxs-door-open"></i> Room size : 49m²/55m²
+                </div>
+                <div><i class="bx bxs-bath"></i> Luxury bathroom amenities</div>
+                <div><i class="bx bxs-tv"></i> Living room</div>
+                <div><i class="bx bxs-coffee"></i> Coffee machine</div>
+              </div>
+
+              <div class="button-container">
+                <a href="./login/login.html">
+                  <button class="book-now-button-small">
+                    <span>BOOK NOW</span>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- IMAGE 5 -->
+          <div class="slide99">
+            <div class="slide99-img-container">
+              <img
+                src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Slide 3"
+              />
+            </div>
+            <div class="text-container2">
+              <div class="font-lg2 room-title text-tertiary">
+                Opuluxe Palazzo
+              </div>
+              <div class="text-tertiary font-md1">
+                Enter a world of opulence and grandeur at this palatial
+                destination, where luxury knows no bounds and every whim is
+                catered to.
+              </div>
+              <div class="room-specs font-md1">
+                <div>
+                  <i class="bx bx-wifi"></i> High-speed Wi-Fi connection
+                </div>
+                <div><i class="bx bxs-user"></i> Max guest : 2</div>
+                <div><i class="bx bxs-bed"></i> Bed size(s) : King</div>
+                <div><i class="bx bxs-door-open"></i> Room size : 68m²</div>
+                <div><i class="bx bxs-bath"></i> Bathtub & shower</div>
+                <div><i class="bx bxs-bath"></i> Luxury bathroom amenities</div>
+                <div><i class="bx bxs-tv"></i> Living room</div>
+                <div><i class="bx bxs-coffee"></i> Coffee machine</div>
+              </div>
+
+              <div class="button-container">
+                <a href="./login/login.html">
+                  <button class="book-now-button-small">
+                    <span>BOOK NOW</span>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- IMAGE 6 -->
+          <div class="slide99">
+            <div class="slide99-img-container">
+              <img
+                src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Slide 3"
+              />
+            </div>
+            <div class="text-container2">
+              <div class="font-lg2 room-title text-tertiary">
+                Grand Vista Manor
+              </div>
+              <div class="text-tertiary font-md1">
+                Step into a world of grandeur and refinement at this stately
+                manor, offering lavish accommodations and panoramic vistas.
+              </div>
+              <div class="room-specs font-md1">
+                <div>
+                  <i class="bx bx-wifi"></i> High-speed Wi-Fi connection
+                </div>
+                <div><i class="bx bxs-user"></i> Max guest : 2</div>
+                <div><i class="bx bxs-bed"></i> Bed size(s) : King</div>
+                <div><i class="bx bxs-door-open"></i> Room size : 29m²</div>
+              </div>
+
+              <div class="button-container">
+                <a href="./login/login.html">
+                  <button class="book-now-button-small">
+                    <span>BOOK NOW</span>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- IMAGE 7 -->
+          <div class="slide99">
+            <div class="slide99-img-container">
+              <img
+                src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Slide 3"
+              />
+            </div>
+            <div class="text-container2">
+              <div class="font-lg2 room-title text-tertiary">
+                Premier Elegance Hotel
+              </div>
+              <div class="text-tertiary font-md1">
+                Discover the epitome of elegance and exclusivity at this premier
+                hotel, where discerning guests are treated to unmatched luxury.
+              </div>
+              <div class="room-specs font-md1">
+                <div>
+                  <i class="bx bx-wifi"></i> High-speed Wi-Fi connection
+                </div>
+                <div><i class="bx bxs-user"></i> Max guest : 2</div>
+                <div>
+                  <i class="bx bxs-bed"></i> Bed size(s) : King/Queen/Twin
+                </div>
+                <div><i class="bx bxs-door-open"></i> Room size : 24m²</div>
+              </div>
+
+              <div class="button-container">
+                <a href="./login/login.html">
+                  <button class="book-now-button-small">
+                    <span>BOOK NOW</span>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="previous-button font-lg2">
+          <i class="bx bx-left-arrow-alt"></i>
+        </button>
+
+        <button class="next-button font-lg2">
+          <i class="bx bx-right-arrow-alt"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- About and contact -->
+    <footer class="footer-container bg-tertiary">
+      <div class="about-container" id="about-contact">
+        <div class="footer-about">
+          <div class="footer-title text-secondary">About Casa Vista</div>
+          <p class="text-dark footer-description">
+            Welcome to Casa Vista, your premier destination for discovering the
+            finest accommodations in every city across the Philippines. Nestled
+            amidst the stunning landscapes and rich cultural heritage of the
+            Philippines, Casa Vista offers a curated selection of hotels,
+            ensuring a memorable stay wherever your adventures take you.
+          </p>
+          <div class="footer-title text-secondary">Personalized Service</div>
+          <p class="text-dark footer-description">
+            At Casa Vista, personalized service is our priority. Our dedicated
+            team is committed to anticipating your needs and providing
+            assistance whenever required. Whether it's arranging transportation
+            or recommending local attractions, we're here to ensure your
+            experience is seamless and stress-free.
+          </p>
+          <div class="contact-container">
+            <div class="footer-title text-secondary">Contact Us</div>
+            <div class="social-icons">
+              <i class="bx bxl-facebook-circle text-dark"></i>
+              <i class="bx bxs-envelope text-dark"></i>
+              <i class="bx bxl-twitter text-dark"></i>
+              <i class="bx bxl-instagram-alt text-dark"></i>
+            </div>
+          </div>
+        </div>
+        <div class="footer-get-in-touch">
+          <div class="footer-title text-secondary">Get in Touch</div>
+          <p class="text-dark footer-description">
+            Ready to begin your Philippine journey? Book your accommodations
+            with Casa Vista today and embark on an unforgettable exploration of
+            the Philippines. Have inquiries or special requests? Our friendly
+            team is always available to assist you. Contact us to discover more
+            about our offerings, amenities, and exclusive deals.
+          </p>
+          <div class="footer-title text-secondary">Explore and Indulge</div>
+          <p class="text-dark footer-description">
+            Discover the beauty of the Philippines with Casa Vista as your
+            trusted guide. Whether you're eager to explore iconic landmarks,
+            savor delicious cuisine at our partner hotels, or unwind by pristine
+            beaches, there's something for every traveler to enjoy. Let Casa
+            Vista be your gateway to remarkable adventures and cherished
+            memories throughout the Philippines.
+          </p>
+        </div>
+        <div class="footer-map">
+          <div class="map-container">
+            <div class="footer-title text-secondary location-title">
+              Our Location
+            </div>
+            <div class="footer-map-container">
+              <img
+                src="https://storage.googleapis.com/support-forums-api/attachment/thread-216441714-17222946594181417489.png"
+                alt="hotel map"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- js files -->
+    <script src="scripts/main.js" type="module"></script>
+  </body>
+</html>
