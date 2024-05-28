@@ -1,3 +1,4 @@
+<!-- THIS FILE WILL FETCH TO DATABASE TO UPDATE A ROOM IN DATABASE -->
 <?php
 
 include("../../accounts/db.php");
@@ -10,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $newRoomNumber = sanitize_data($_POST['new-room-number']);
   $newPrice = sanitize_data($_POST['new-price']);
   $newImg = sanitize_data($_POST['new-room-img-link']);
-  // no need to sanitize because this is <option> not input
+  // no need to sanitize because this is <option> and not directly user input
   $newType = $_POST['new-room-type'];
   $newStatus = $_POST['new-status'];
   $newHotelId = $_POST['room-hotel'];

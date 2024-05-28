@@ -1,3 +1,4 @@
+// animation on homepage and on view
 export function fadeInAnimation() {
   // Initialize Intersection Observer
   const observer = new IntersectionObserver((entries) => {

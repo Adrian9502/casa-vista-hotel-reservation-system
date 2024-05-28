@@ -5,7 +5,7 @@ $response = array();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // Connect to MySQL database
-  include("db.php");
+  include("./db.php");
 
   // Retrieve form data
   $input_username = mysqli_real_escape_string($conn, $_POST['username']);
@@ -26,19 +26,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $_SESSION['username'] = $input_username;
       $_SESSION['user_id'] = $row['user_id'];
       $_SESSION['role'] = $row['role'];
-      $_SESSION['login_attempts'] = 0; // Reset login attempts on successful login
-
       // Set success message in response
       $response['success'] = true;
       $response['role'] = $row['role']; // Add role to response
     } else {
       // Password is incorrect
-      $_SESSION['login_attempts'] += 1;
       $response['error'] = "Incorrect Password, Please Try again";
     }
   } else {
     // Username not found
-    $_SESSION['login_attempts'] += 1;
     $response['error'] = "Username not found. Please try again or sign up.";
   }
 

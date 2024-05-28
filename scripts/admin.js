@@ -1,5 +1,7 @@
+// Sweet alert
 import sweetalert2 from "https://cdn.jsdelivr.net/npm/sweetalert2@11.11.0/+esm";
-// ! ajax request for dynamic grid containers and sidebar
+
+// AJAX request for dynamic grid containers and sidebar at admin dashboard
 function handleAjaxRequest(container) {
   let phpFile;
 
@@ -80,6 +82,7 @@ function handleSearch(tableId, searchButtonClass) {
   });
 }
 // pop up form and fetch to database function
+// i use parameterized function to reuse this function and make codes clean.
 function popUpAndFetch(config) {
   const {
     buttonSelector,
@@ -196,11 +199,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // call search function
+  // call search function for hotel,room,reservation and user table
   handleSearch("hotel-table", ".search-btn-hotel");
   handleSearch("room-table", ".search-btn-room");
   handleSearch("reservation-table", ".search-btn-reservation");
   handleSearch("user-table", ".search-btn-user");
+
+  
   // Recalling pop up and fetch for code reusability
   // ! Hotel Management
   // create hotel

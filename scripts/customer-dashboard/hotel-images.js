@@ -1,4 +1,4 @@
-
+// This file is for hotel section in the customerDashboard (Image slider)
   $(document).ready(function () {
     for (var i = 1; i <= $(".slider__slide").length; i++) {
       $(".slider__indicators").append(

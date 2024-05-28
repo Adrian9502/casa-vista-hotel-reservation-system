@@ -2,9 +2,11 @@
 <html lang="en">
 
 <head>
+  <!-- THIS FILE FOR THE AJAX REQUEST FOR DYNAMIC PAGE  -->
+  <!-- Report and analytics -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
+  <!-- css -->
   <link rel="stylesheet" href="../../../hotel_reservation_system/styles/report-and-analytics.css">
 </head>
 <?php

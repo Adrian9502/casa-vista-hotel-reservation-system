@@ -1,3 +1,4 @@
+// animation will play if user is in view
 function animation() {
   document.addEventListener("DOMContentLoaded", function () {
     const observerOptions = {
@@ -94,8 +95,8 @@ function formPopUp() {
     });
   });
 }
-//
-function formFetch() {
+// fetch the 
+function roomOptionFetch() {
   // Dynamic options changing base on the selected hotel
   document
     .getElementById("hotelSelect")
@@ -187,7 +188,7 @@ function reservationPopUp() {
 document
   .getElementById("bookingForm")
   .addEventListener("submit", function (event) {
-    event.preventDefault(); // Prevent default form submission behavior
+    event.preventDefault();
     submitFormFetch(); // Call the submitFormFetch function
   });
 
@@ -198,22 +199,12 @@ document
   .addEventListener("submit", function (event) {
     event.preventDefault(); // Prevent the default form submission behavior
 
-    var userId = document.getElementById("user_id").value;
-    var roomId = document.getElementById("roomSelect").value;
-    var checkIn = document.getElementById("checkIn").value;
-    var checkOut = document.getElementById("checkOut").value;
+    const userId = document.getElementById("user_id").value;
+    const roomId = document.getElementById("roomSelect").value;
+    const checkIn = document.getElementById("checkIn").value;
+    const checkOut = document.getElementById("checkOut").value;
 
-    alert(
-      "Form values: " +
-        userId +
-        ", " +
-        roomId +
-        ", " +
-        checkIn +
-        ", " +
-        checkOut
-    );
-    var formData = new FormData();
+    const formData = new FormData();
 
     formData.append("user_id", userId);
     formData.append("room_id", roomId);
@@ -242,5 +233,5 @@ document
 
 animation();
 reservationPopUp();
-formFetch();
+roomOptionFetch();
 formPopUp();

@@ -1,5 +1,8 @@
+
 <?php
+// THIS FILE WILL FETCH TO DATABASE TO DELETE A HOTEL
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  // db connection and function to sanitize data
   include ('../../accounts/db.php'); 
   include('../../accounts/sanitize-data.php');
   $hotelId = sanitize_data($_POST['delete-hotel-id']);

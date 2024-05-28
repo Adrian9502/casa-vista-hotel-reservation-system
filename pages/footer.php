@@ -1,3 +1,4 @@
+<!-- THIS FILE IS FOR THE FOOTER IN ADMIN DASHBOARD -->
 <style>
 .footer-short {
     font-family: Poppins, Arial, Helvetica, sans-serif;

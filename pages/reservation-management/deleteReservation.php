@@ -1,4 +1,6 @@
+<!-- THIS FILE WILL FETCH TO DATABASE TO DELETE RESERVATION IN DATABASE -->
 <?php
+// include db connection and function to sanitize data
 include("../../accounts/db.php");
 include("../../accounts/sanitize-data.php");
 
@@ -6,7 +8,6 @@ include("../../accounts/sanitize-data.php");
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // Sanitize and validate form data
   $reservationId = sanitize_data($_POST['reservation-id']);
-
   // Check if reservation ID is correctly sanitized
   if (!$reservationId) {
     echo "Error: Invalid input data.";

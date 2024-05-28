@@ -1,4 +1,6 @@
+<!-- THIS FILE WILL FETCH TO DATABASE TO GET THE OCCUPANCY RATES, BOOKING TRENDS, TOTAL RESERVATION AND TOTAL REVENUE (Financial reports) -->
 <?php
+// include db connection
 include('../../accounts/db.php');
 
 // Fetch total reservations

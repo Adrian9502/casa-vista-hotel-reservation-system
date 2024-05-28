@@ -1,5 +1,8 @@
+
 <?php
+// THIS FILE WILL FETCH TO DATABASE TO UPDATE HOTEL
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  // db connection and function to sanitize input
   include('../../accounts/db.php');
   include('../../accounts/sanitize-data.php');
 
@@ -11,6 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $newDescription = sanitize_data($_POST['new-description']);
 
   // Use prepared statements to prevent SQL injection
+  // run the query to check if the hotel id existed
   $stmt = $conn->prepare("SELECT * FROM Hotel WHERE hotel_id=?");
   $stmt->bind_param("i", $hotelId);
   $stmt->execute();

@@ -1,3 +1,4 @@
+// when user scroll down. the header become sticky
 export function stickyHeader() {
   $(document).ready(function () {
     var header = $("header");

@@ -1,6 +1,8 @@
-<?php
 
+<?php
+// THIS FILE WILL FETCH TO DATABASE TO ADD A NEW HOTEL
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  // function to sanitize user input
   include('../../accounts/sanitize-data.php');
 
   // Validate and sanitize form data

@@ -59,20 +59,54 @@ function loginFetch() {
               }, 3000);
             }
           } else {
-            // Increment login attempts
-            attempts += 1;
-            localStorage.setItem("loginAttempts", attempts);
+            console.log(data.error);
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  });
+}
+// function to process user registration
+function registrationFetch() {
+  document.addEventListener("submit", function (event) {
+    if (event.target && event.target.id === "registration-form") {
+      event.preventDefault();
 
+      // Collect form data
+      const formData = new FormData(event.target);
+
+      fetch("../../../hotel_reservation_system/accounts/userRegistration.php", {
+        method: "POST",
+        body: formData,
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.text(); // Read response as plain text
+        })
+        .then((text) => {
+          // Check if registration was successful
+          if (text.includes("Registration successful!")) {
             sweetalert2.fire({
-              title: "Login Error!",
-              text: data.error,
+              title: "Registration Success!",
+              text: "Registration successful!",
+              icon: "success",
+            });
+            event.target.reset();
+          } else {
+            sweetalert2.fire({
+              title: "Registration Error!",
+              text: text,
               icon: "error",
             });
           }
         })
         .catch((error) => {
           sweetalert2.fire({
-            title: "Login Error!",
+            title: "Registration Error!",
             text: error.message,
             icon: "error",
           });
@@ -82,4 +116,5 @@ function loginFetch() {
 }
 
 popUpRegistration();
+registrationFetch();
 loginFetch();

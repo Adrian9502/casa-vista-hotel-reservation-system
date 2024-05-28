@@ -1,3 +1,4 @@
+// image sliders
 export function Slider() {
   const carouselSlides = document.querySelectorAll(".slide");
   const btnPrev = document.querySelector(".prev");

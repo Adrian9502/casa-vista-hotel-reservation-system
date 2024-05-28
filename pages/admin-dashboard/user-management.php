@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- THIS FILE WILL FETCH TO DATABASE TO ADD A NEW HOTEL -->
 <html lang="en">
 
 <head>

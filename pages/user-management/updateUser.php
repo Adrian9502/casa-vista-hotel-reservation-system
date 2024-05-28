@@ -1,4 +1,11 @@
+<!-- THIS FILE IS FETCHING TO DATABASE TO UPDATE USERS -->
 <?php
+// if the logged in role is not admin , return to login page
+if ($_SESSION['role'] !== 'admin') {
+  header("location: ../../login/login.html");
+  exit();
+}
+// include the database connection and function to sanitize inputs from user
 include("../../accounts/db.php");
 include('../../accounts/sanitize-data.php');
 
@@ -32,12 +39,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $update_stmt->bind_param("ssssi", $username, $email, $full_name, $role, $user_id);
 
+    // if query update successfully
     if ($update_stmt->execute() === TRUE) {
       echo "User updated successfully!";
     } else {
       echo "Error updating user or User ID does not exist.";
     }
-
+    // close the statement
     $update_stmt->close();
   } else {
     echo "Error: User ID does not exist.";

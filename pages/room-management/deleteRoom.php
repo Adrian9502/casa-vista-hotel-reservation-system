@@ -1,4 +1,6 @@
+<!-- THIS FILE WILL FETCH TO DATABASE TO DELETE A ROOM IN DATABASE -->
 <?php
+// include db connection and function to sanitize the user input
   include("../../accounts/db.php");
   include("../../accounts/sanitize-data.php");
 

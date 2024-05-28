@@ -1,3 +1,4 @@
+// import other files into main js file for organization
 import { Slider,featureSlider,roomAndSuitesSlider } from "./homepage/slider.js";
 import { stickyHeader } from "./homepage/stickyHeader.js";
 import { fadeInAnimation,animateOnClick } from "./homepage/animation.js";

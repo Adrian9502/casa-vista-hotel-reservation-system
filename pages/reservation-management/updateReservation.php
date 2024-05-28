@@ -1,4 +1,6 @@
+<!-- THIS FILE WILL FETCH TO DATABASE TO UPDATE RESERVATION IN DATABASE -->
 <?php
+// include db connection and function to sanitize data
 include("../../accounts/db.php");
 include("../../accounts/sanitize-data.php");
 

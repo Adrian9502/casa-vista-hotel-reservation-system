@@ -1,22 +1,20 @@
+<!-- THIS FILE WILL LOAD IF THE LOGGED IN USER IS ADMIN -->
 <?php
 session_start();
 
-// Check if user is logged in
+// if logged in as customer, return to login page
 if ($_SESSION['role'] !== 'admin') {
   header("location: ../login/login.html");
   exit();
 }
-
+// get the logged in username to display to admin dashboard
 if (isset($_SESSION['username'])) {
   // Get the logged-in username
   $loggedInUsername = $_SESSION['username'];
 } else {
   header("location: ../login/login.html");
 }
-
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,7 +32,7 @@ if (isset($_SESSION['username'])) {
 </head>
 
 <body class="bg-primary">
-
+  <!-- sidebar -->
   <sidebar class="sidebar open bg-tertiary">
     <div class="logo">
       <img class="logo-sidebar" src="../img/logo-header.png" alt="">
@@ -100,8 +98,7 @@ if (isset($_SESSION['username'])) {
       </ul>
     </div>
   </sidebar>
-
-
+  <!-- main content -->
   <main id="main-content" class="bg-tertiary">
     <div class="main-container1">
       <div class="admin-dash">

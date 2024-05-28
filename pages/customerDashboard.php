@@ -1,15 +1,18 @@
+<!-- THIS FILE WILL LOAD IF THE LOGGED IN USER IS CUSTOMER -->
 <?php
 session_start();
+// if the role is not admin it will redirect to login 
 if ($_SESSION['role'] !== 'customer') {
   header("Location: ../login/login.html");
   exit();
 }
-
+// get the username to display in header section
 if (isset($_SESSION['username'])) {
-  // Get the logged-in username
+  // get the id to make a query in database to check if this user have book or not
   $user_id = $_SESSION['user_id'];
   $username = $_SESSION['username'];
 } else {
+  // if username is null return to login page
   $username = null;
   header("location: ../login/login.html");
   exit();
@@ -263,10 +266,8 @@ if (isset($_SESSION['username'])) {
       </div>
     </div>
   </div>
+  <!-- Rooms -->
   <div id="rooms" class="container-title circle bg-tertiary">Rooms</div>
-
-
-
   <div id="rooms">
     <!-- function to retrieve data from database -->
     <?php
@@ -457,7 +458,6 @@ if (isset($_SESSION['username'])) {
     </div>
 
   </div>
-
   <!-- Overlay -->
   <div class="overlay" id="overlay"></div>
   <!-- Room Booking form -->
@@ -513,9 +513,11 @@ if (isset($_SESSION['username'])) {
   <!-- Overlay -->
   <div class="overlay overlay1" id="overlay1"></div>
   <!-- My Reservation -->
+  <!-- Pop up reservation -->
   <?php
+  // include connection
   include("../accounts/db.php");
-
+  
   $user_id = mysqli_real_escape_string($conn, $user_id);
 
   $query = "SELECT Hotel.name AS hotel_name, Rooms.room_number, Rooms.type, Reservations.check_in, Reservations.check_out, Rooms.price
@@ -534,6 +536,7 @@ if (isset($_SESSION['username'])) {
       <button class="close-button" title="close" id="closeConButton">×</button>
     </div>
     <div class="reservation-details">
+      <!-- if result from query is greater than 0 (means the query retrieve data) -->
       <?php if (mysqli_num_rows($result) > 0) { ?>
         <table>
           <thead>
@@ -565,6 +568,7 @@ if (isset($_SESSION['username'])) {
           </tbody>
         </table>
       <?php } else { ?>
+        <!-- if user didn't book any  -->
         <div class="no-booked">"No Booked Room"</div>
       <?php } ?>
     </div>

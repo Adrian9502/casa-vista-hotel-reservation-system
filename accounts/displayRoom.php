@@ -1,7 +1,9 @@
 <?php
 
 // This file is getting information in rooms table in database and display it dynamically (onchange) on customer.js (formAjax function)
+// For example when booking a room, user will select which hotel they want to book and what room. every change of the options in hotel the room will change dynamically base on the hotel user selected
 
+// include db connection
 include("./db.php");
 
 // for dynamic option select
