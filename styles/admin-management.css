@@ -6,13 +6,15 @@ body {
 }
 
 .data-image {
-  width: 300px; 
+  width: 100%; 
   border-radius: 10px;
-  max-height: 300px; 
+  max-height: 100%; 
   object-fit: cover; 
 }
 .db-img{
-  width: 320px;
+  width: 180px;
+  min-width: 130px;
+  padding: 0;
   overflow: hidden;
 }
 .section-heading {
@@ -339,7 +341,10 @@ button[type="submit"]:hover {
   }
 }
 
-@media screen and (max-width: 1208px) {
+@media screen and (max-width: 1097px) {
+  main{
+    margin: 30px 20px 50px 290px;
+  }
   td {
     font-size: small;
   }
@@ -353,8 +358,17 @@ button[type="submit"]:hover {
     padding: 8px 12px;
   }
 }
-
-@media screen and (max-width: 692px) {
+@media screen and (max-width: 959px) {
+  main {
+    margin: 30px 20px 50px 210px;
+  }
+}
+@media screen and (max-width: 786px) {
+  main {
+    margin: 30px 20px 50px 210px;
+  }
+}
+@media screen and (max-width: 737px) {
   main {
     width: 70%;
     margin: 30px 20px 50px 27%;
