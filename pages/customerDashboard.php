@@ -37,17 +37,10 @@ if (isset($_SESSION['username'])) {
 <body class="bg-secondary">
   <header class="header circle  sticky">
     <section class="header-left">
-      <div></div>
-      <div></div>
-      <div></div>
       <span class="header-left-logo-container">
         <a href="../pages/customerDashboard.php">
           <img class="header-logo" src="../img/logo-header.png" alt="brand logo" />
         </a>
-      </span>
-      <span class="user-container-mobile">
-        <i class='bx bxs-user'></i>
-        <?php echo "$username"; ?>
       </span>
     </section>
 
@@ -58,11 +51,12 @@ if (isset($_SESSION['username'])) {
       <a class="text-primary font-md1" href="#about">About</a>
       <a class="text-primary font-md1" href="#about">Contact</a>
       <a class="text-primary font-md1" href="../accounts/logout.php">Log out</a>
+      <span class="user-container-mobile">
+        <i class='bx bxs-user'></i>
+        <?php echo "&nbsp $username"; ?>
+      </span>
     </section>
-    <span class="user-container">
-      <i class='bx bxs-user'></i>
-      <?php echo "&nbsp $username"; ?>
-    </span>
+
   </header>
   <!-- 1st image group -->
   <section class="image-container fade-in-left">

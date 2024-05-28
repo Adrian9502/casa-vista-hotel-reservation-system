@@ -8,8 +8,8 @@ body {
   width: 80%;
   padding: 10px;
   margin: 140px auto 50px auto;
+
 }
-/* TODO: RESPONSIVE DESIGN HERE */
 .img-title {
   color: #111;
   font-size: 35px;
@@ -280,7 +280,7 @@ body {
 
 /* room wrapper */
 .rooms-grid-wrapper {
-  position: relative;
+  width: 100%;
 }
 .hotel-name {
   font-size: 45px;
@@ -405,7 +405,8 @@ body {
   width: 80%;
 }
 .reservation-container {
-  width: 100%;
+  max-width: 100%;
+  margin: auto;
 }
 .booking-form-container,
 .reservation-container {
@@ -521,7 +522,8 @@ body {
   border: 1px solid #333;
   border-radius: 6px;
   max-height: 400px;
-  overflow: auto; /* Add overflow property to enable scrolling if content exceeds max-height */
+  width: 100%;
+  overflow: auto; 
 }
 
 .no-booked {
@@ -532,8 +534,9 @@ body {
 }
 
 table {
-  width: 100%;
-  border-collapse: collapse; /* Collapse table borders */
+  max-width: 100%;
+  border-collapse: collapse; 
+  overflow: scroll;
 }
 
 thead {
@@ -561,5 +564,89 @@ th:last-child,
 td:last-child {
   border-right: none;
 }
+@media screen and (max-width: 1210px){
+  .rooms-grid{
+    width: 90%;
+  }
+  .room-description{
+    word-spacing: 1px;
+  }
+  .room-description h2 {
+    font-size: 18px;
+  }
+  .room-description h3 {
+    font-size: 16px;
+  }
+  .room-description p {
+    font-size: 14px;
+    font-weight: 300;
+    color: #f8f7f7;
+  }
+}
 
-/* TODO: RESPONSIVE DESIGN */
+@media screen and (max-width: 1300px ){
+  .img-grid {
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 20px;
+  }
+  /* rooms */
+  .rooms-grid {
+    width: 90%;
+
+  }
+  .container-title{
+    font-size: 35px;
+  }
+  .img-title,.img-title-locations{
+    font-size: 29px;
+  }
+  .hotel-name{
+    font-size: 33px;
+  }
+}
+@media screen and (max-width: 1000px ){
+  /* rooms */
+  .rooms-grid {
+    width: 70%;
+    height: 30%;
+    gap: 60px;
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+@media screen and (max-width: 590px ){
+  .image-container{
+    padding-top: 60px;
+  }
+}
+
+@media screen and (max-width: 620px ){
+  .rooms-grid {
+    gap: 0;
+    width: 60%;
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+@media screen and (max-width: 856px ){
+  .img-grid{
+    grid-template-columns: repeat(2,1fr);
+  }
+  .img-grid-loc {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .reservation-container{
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+@media screen and (max-width: 520px ){
+  .reservation-container{
+    width: 80%;
+
+  }
+  .form-title{
+    font-size: 27px;
+  }
+}
