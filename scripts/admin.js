@@ -330,7 +330,7 @@ document.addEventListener("DOMContentLoaded", function () {
     formActionUrl:
       "../../hotel_reservation_system/accounts/userRegistration.php",
     successMessage: "New User added successfully!",
-    errorMessage: "Error adding new user.",
+    errorMessage: "Error ",
     tableId: "#user-table",
     ajaxAfterSubmitUrl:
       "../../hotel_reservation_system/pages/admin-dashboard/user-management.php",

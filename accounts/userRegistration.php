@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "New User added successfully!";
     exit();
   } else {
-    echo "Error adding new user.";
+    echo "Error adding new user, ". $stmt->error;
   }
 
   // Close statement and database connection
