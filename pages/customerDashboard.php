@@ -484,7 +484,7 @@ if (isset($_SESSION['username'])) {
 
   $user_id = mysqli_real_escape_string($conn, $user_id);
 
-  $query = "SELECT Hotel.name AS hotel_name, Rooms.room_number, Rooms.type, Reservations.check_in, Reservations.check_out, Rooms.price
+  $query = "SELECT Reservations.reservation_id, Hotel.name AS hotel_name, Rooms.room_number, Rooms.type, Reservations.check_in, Reservations.check_out, Rooms.price
           FROM Reservations
           INNER JOIN Users ON Reservations.user_id = Users.user_id
           INNER JOIN Rooms ON Reservations.room_id = Rooms.room_id
@@ -511,6 +511,7 @@ if (isset($_SESSION['username'])) {
               <th>Check-in Date</th>
               <th>Check-out Date</th>
               <th>Price</th>
+              <th>Cancel</th>
             </tr>
           </thead>
           <tbody>
@@ -525,6 +526,8 @@ if (isset($_SESSION['username'])) {
                 <td><?php echo $row['check_in']; ?></td>
                 <td><?php echo $row['check_out']; ?></td>
                 <td>$<?php echo $row['price']; ?></td>
+                <td><button class="cancel-btn" data-reservation-id="<?php echo $row['reservation_id']; ?>">Cancel</button></td>
+
               </tr>
             <?php
             }

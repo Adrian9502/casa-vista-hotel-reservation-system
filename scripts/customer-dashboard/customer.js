@@ -195,7 +195,6 @@ document
     const checkIn = document.getElementById("checkIn").value;
     const checkOut = document.getElementById("checkOut").value;
 
-
     const formData = new FormData();
 
     formData.append("user_id", userId);
@@ -238,6 +237,60 @@ document
       });
   });
 
+// function to cancel the customer reservation
+function cancelReservation() {
+  document.addEventListener("DOMContentLoaded", function () {
+    const cancelButtons = document.querySelectorAll(".cancel-btn");
+
+    cancelButtons.forEach((button) => {
+      button.addEventListener("click", function () {
+        const reservationId = this.getAttribute("data-reservation-id");
+
+        sweetalert2.fire({
+          title: "Confirm Cancel",
+          text: "You won't be able to revert this!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "orange",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes, Cancel it!",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            fetch(
+              "../../hotel_reservation_system/pages/reservation-management/deleteReservation.php",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/x-www-form-urlencoded",
+                },
+                body: `reservation-id=${reservationId}`,
+              }
+            )
+              .then((response) => response.text())
+              .then((data) => {
+                sweetalert2.fire({
+                  title: "Deleted!",
+                  text: "Your reservation has been cancelled.",
+                  icon: "success",
+                }).then(() => {
+                  location.reload();
+                });
+              })
+              .catch((error) => {
+                sweetalert2.fire({
+                  title: "Error!",
+                  text: "There was an error cancelling your reservation.",
+                  icon: "error",
+                });
+                console.error("Error:", error);
+              });
+          }
+        });
+      });
+    });
+  });
+}
+cancelReservation();
 animation();
 reservationPopUp();
 roomOptionFetch();

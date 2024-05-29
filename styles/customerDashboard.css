@@ -400,6 +400,19 @@ body {
   display: none;
 }
 
+.cancel-btn{
+  border-radius: 7px;
+  padding: 5px;
+  border: 1px solid #111;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-size: small;
+}
+.cancel-btn:hover{
+  background-color: rgb(228, 151, 9);
+  color: white;
+}
+
 /* Form Container */
 .booking-form-container {
   width: 80%;
