@@ -1,5 +1,5 @@
-<!-- THIS FILE WILL FETCH TO DATABASE TO DELETE RESERVATION IN DATABASE -->
 <?php
+// THIS FILE WILL FETCH TO DATABASE TO DELETE RESERVATION IN DATABASE
 // include db connection and function to sanitize data
 include("../../accounts/db.php");
 include("../../accounts/sanitize-data.php");

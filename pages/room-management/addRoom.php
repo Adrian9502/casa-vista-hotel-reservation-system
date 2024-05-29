@@ -1,5 +1,5 @@
-<!-- THIS FILE WILL FETCH TO DATABASE TO ADD A ROOM IN DATABASE -->
 <?php
+// THIS FILE WILL FETCH TO DATABASE TO ADD A ROOM IN DATABASE
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // include function to sanitize data
   include("../../accounts/sanitize-data.php");
@@ -9,6 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $room_status = $_POST['room-status'];
   $room_price = sanitize_data($_POST['room-price']);
   $room_hotel = sanitize_data($_POST['room-hotel']);
+  $room_desc = sanitize_data($_POST['room-description']);
   $room_img_link = $_POST['room-img-link']; 
   // include database connection
   include("../../accounts/db.php");
@@ -17,15 +18,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sanitized_url = filter_var($room_img_link, FILTER_SANITIZE_URL); 
 
     // Check if all variables are correctly sanitized
-    if (!$room_number || !$room_type || !$room_price || !$room_status || !$room_hotel || !$room_img_link) {
+    if (!$room_number || !$room_type || !$room_price || !$room_status || !$room_hotel || !$room_img_link || !$room_desc) {
       echo "Error: Invalid input data.";
       exit;
     }
     // try and catch
     try {
       // Prepare and execute SQL statement with parameterized query
-      $sql = "INSERT INTO Rooms (room_number, img_link, type, price, status, hotel_id)
-              VALUES (?, ?, ?, ?, ?, ?)";
+      $sql = "INSERT INTO Rooms (room_number,description, img_link, type, price, status, hotel_id)
+              VALUES (?, ?, ?, ?, ?, ?, ?)";
       $stmt = $conn->prepare($sql);
 
       if ($stmt === false) {
@@ -33,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       }
 
       // Bind parameters
-      $stmt->bind_param("issisi", $room_number, $room_img_link, $room_type, $room_price, $room_status, $room_hotel);
+      $stmt->bind_param("isssisi", $room_number,$room_desc, $room_img_link, $room_type, $room_price, $room_status, $room_hotel);
 
       if ($stmt->execute()) {
         echo "Room added successfully!";

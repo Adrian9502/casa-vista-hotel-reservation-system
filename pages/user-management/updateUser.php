@@ -1,10 +1,5 @@
-<!-- THIS FILE IS FETCHING TO DATABASE TO UPDATE USERS -->
 <?php
-// if the logged in role is not admin , return to login page
-if ($_SESSION['role'] !== 'admin') {
-  header("location: ../../login/login.html");
-  exit();
-}
+//  THIS FILE IS FETCHING TO DATABASE TO UPDATE USERS 
 // include the database connection and function to sanitize inputs from user
 include("../../accounts/db.php");
 include('../../accounts/sanitize-data.php');
@@ -34,24 +29,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $update_sql = "UPDATE Users SET username = ?, email = ?, full_name = ?, role = ? WHERE user_id = ?";
     $update_stmt = $conn->prepare($update_sql);
     if ($update_stmt === false) {
-      die("Error preparing statement: " . $conn->error);
+      die("Error preparing update statement: " . $conn->error);
     }
 
     $update_stmt->bind_param("ssssi", $username, $email, $full_name, $role, $user_id);
 
-    // if query update successfully
+    // Execute the update statement
     if ($update_stmt->execute() === TRUE) {
       echo "User updated successfully!";
     } else {
-      echo "Error updating user or User ID does not exist.";
+      // Echo only the error message
+      echo "Error updating user: " . $update_stmt->error;
     }
-    // close the statement
+
+    // Close the update statement
     $update_stmt->close();
   } else {
     echo "Error: User ID does not exist.";
   }
 
-  // Close statement and database connection
+  // Close the check statement
   $check_stmt->close();
+  // Close the database connection
   $conn->close();
+} else {
+  echo "Invalid request method.";
 }

@@ -93,6 +93,7 @@ function popUpAndFetch(config) {
     errorMessage,
     ajaxAfterSubmitUrl,
   } = config;
+
   function ajaxAfterSubmit(ajaxAfterSubmitUrl) {
     const xhr = new XMLHttpRequest();
     xhr.open("GET", ajaxAfterSubmitUrl, true);
@@ -103,6 +104,7 @@ function popUpAndFetch(config) {
     };
     xhr.send();
   }
+
   // Event delegation for showing the popup form
   document.addEventListener("click", function (event) {
     if (event.target.matches(buttonSelector)) {
@@ -128,6 +130,7 @@ function popUpAndFetch(config) {
       }
     }
   });
+
   // Event delegation for fetching form submission
   document.addEventListener("submit", function (event) {
     if (event.target.matches(formSelector)) {
@@ -148,36 +151,46 @@ function popUpAndFetch(config) {
         .then((data) => {
           // Check the response for different scenarios
           if (data.includes(successMessage)) {
-            // Both hotel and rooms deleted successfully
-            sweetalert2
-              .fire({
-                title: "Success!",
-                text: successMessage,
-                icon: "success",
-              })
-              .then(() => {
-                // After showing the success message, fetch the updated data
-                ajaxAfterSubmit(ajaxAfterSubmitUrl);
-              });
+            // User updated successfully
+            sweetalert2.fire({
+              title: "Success!",
+              text: successMessage,
+              icon: "success",
+            }).then(() => {
+              // After showing the success message, fetch the updated data
+              ajaxAfterSubmit(ajaxAfterSubmitUrl);
+            });
           } else {
+            // Display the error message returned from the server
             sweetalert2.fire({
               title: "Error!",
-              text: errorMessage,
+              text: data, // Display the error message from the server
               icon: "error",
             });
           }
         })
+        
         .catch((error) => {
           console.error("Error:", error);
-          sweetalert2.fire({
-            title: "Error Occured!",
-            text: "An error occurred. Please try again later.",
-            icon: "error",
-          });
+          if (error.message) {
+            sweetalert2.fire({
+              title: "Error Occurred!",
+              text: "An error occurred: " + error.message,
+              icon: "error",
+            });
+          } else {
+            sweetalert2.fire({
+              title: "Error Occurred!",
+              text: "An unknown error occurred. Please try again later.",
+              icon: "error",
+            });
+          }
         });
     }
   });
 }
+
+
 
 // event listener for dynamic dashboard
 document.addEventListener("DOMContentLoaded", function () {

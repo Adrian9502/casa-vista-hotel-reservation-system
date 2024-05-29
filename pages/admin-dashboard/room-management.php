@@ -105,6 +105,10 @@
             <input type="url" id="room-img-link" name="room-img-link" placeholder="Enter room image URL" required />
           </div>
           <div class="form-group">
+            <label for="room-description">Room Description:</label>
+            <textarea  type="text" id="room-description" name="room-description" required ></textarea>
+          </div>
+          <div class="form-group">
             <label for="room-type">Type:</label>
             <select id="room-type" name="room-type" required>
               <option value="Standard">Standard</option>
@@ -179,6 +183,11 @@
           <div class="form-group">
             <label for="new-room-img-link">Image URL:</label>
             <input type="url" id="new-room-img-link" name="new-room-img-link" placeholder="Enter room image URL" required />
+          </div>
+
+          <div class="form-group">
+            <label for="new-room-description">Room Description:</label>
+            <textarea  type="text" id="new-room-description" name="new-room-description" required ></textarea>
           </div>
 
           <div class="form-group">

@@ -1,11 +1,5 @@
 <?php
-// ! MAKE THIS WORK. THIS HAVE AN ERROR
 // THIS FILE IS FETCHING TO DATABASE TO DELETE USERS
-// if the logged in role is not admin , return to login page
-if ($_SESSION['role'] !== 'admin') {
-	header("location: ../../login/login.html");
-	exit();
-}
 // include the database connection and function to sanitize inputs from user
 include("../../accounts/db.php");
 include("../../accounts/sanitize-data.php");
@@ -42,12 +36,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$conn->close();
 }
 ?>
-
-
-
-
-<script type="module" src="../../scripts/admin.js"></script>
-
-</body>
-
-</html>

@@ -1,4 +1,5 @@
 <?php
+// handles login 
 session_start();
 
 $response = array();

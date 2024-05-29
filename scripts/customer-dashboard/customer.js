@@ -1,3 +1,4 @@
+import sweetalert2 from "https://cdn.jsdelivr.net/npm/sweetalert2@11.11.0/+esm";
 // animation will play if user is in view
 function animation() {
   document.addEventListener("DOMContentLoaded", function () {
@@ -95,7 +96,7 @@ function formPopUp() {
     });
   });
 }
-// fetch the 
+// fetch for the rooms in hotel in <option>
 function roomOptionFetch() {
   // Dynamic options changing base on the selected hotel
   document
@@ -138,7 +139,6 @@ function roomOptionFetch() {
 }
 
 function reservationPopUp() {
-  console.log("reservationPopUp function is called");
   document.addEventListener("DOMContentLoaded", function () {
     const showReservationButton = document.getElementById("myReservation");
     const overlay1 = document.querySelector(".overlay1");
@@ -184,15 +184,6 @@ function reservationPopUp() {
   });
 }
 
-// Add an event listener to the form submit event
-document
-  .getElementById("bookingForm")
-  .addEventListener("submit", function (event) {
-    event.preventDefault();
-    submitFormFetch(); // Call the submitFormFetch function
-  });
-
-// handle form submission
 // Listen for form submission
 document
   .getElementById("bookingForm")
@@ -203,6 +194,7 @@ document
     const roomId = document.getElementById("roomSelect").value;
     const checkIn = document.getElementById("checkIn").value;
     const checkOut = document.getElementById("checkOut").value;
+
 
     const formData = new FormData();
 
@@ -222,8 +214,23 @@ document
         return response.text();
       })
       .then((text) => {
-        alert(text);
-        console.log(text);
+        if (text.includes("Room Booking Successful!")) {
+          sweetalert2
+            .fire({
+              title: "Success!",
+              text: "Room Booking Successful!",
+              icon: "success",
+            })
+            .then(() => {
+              window.location.reload();
+            });
+        } else {
+          sweetalert2.fire({
+            title: "Error!",
+            text: text,
+            icon: "error",
+          });
+        }
       })
       .catch((error) => {
         alert("Error saving form");

@@ -102,11 +102,11 @@
 
           <div class="form-group">
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="Enter email" required></input>
+            <input type="email" id="email" name="email" placeholder="Enter email" required>
           </div>
           <div class="form-group">
             <label for="name">Full Name:</label>
-            <input type="text" id="name" name="name" placeholder="Enter full name" required></input>
+            <input type="text" id="name" name="name" placeholder="Enter full name" required>
           </div>
           <div class="form-group">
             <label for="role">Role:</label>

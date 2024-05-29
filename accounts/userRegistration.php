@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $stmt->bind_param("sssss", $username, $hashed_password, $email, $full_name, $role);
   // if insertion is successful
   if ($stmt->execute() === TRUE) {
-    echo "Registration successful!";
+    echo "New User added successfully!";
     exit();
   } else {
     echo "Error adding new user.";
