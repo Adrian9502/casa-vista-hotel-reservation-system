@@ -7,71 +7,72 @@
     <link rel="shortcut icon" href="../img/icon.png" type="image/x-icon" />
     <link rel="stylesheet" href="../styles/login.css" />
     <link rel="stylesheet" href="../styles/general.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
 
-  <body class="bg-tertiary">
-    <main class="bg-secondary">
-      <div class="left-side">
-        <div class="image-container">
-          <img
-            src="https://www.ihgplc.com/~/media/Images/I/Ihg-Plc/news-releases/us-open/2021-nhops.gif?h=450&iar=0&w=800"
-            alt="hotel gif"
-          />
-        </div>
-        <div class="heading-container">
-          <div class="title-container">
-            <div class="font-lg1 text-secondary title">Casa Vista Hotel</div>
+  <body>
+    <main class="wrapper">
+      <div class="container">
+        <div class="left-side">
+          <div class="img-wrapper">
+            <video src="./login-video.mp4" muted autoplay loop alt=""></video>
           </div>
-          <div class="description text-tertiary">
-            Welcome to Casa Vista Hotel, where Filipino charm meets modern
-            elegance. Nestled in the Philippines, our hotel offers a tranquil
-            escape for discerning travelers. Experience comfort, hospitality,
-            and the beauty of our surroundings at Casa Vista Hotel.
+          <div class="heading-container">
+            <div class="description ">
+              Welcome to Casa Vista Hotel, where Filipino charm meets modern
+              elegance. Nestled in the Philippines, our hotel and room offers a tranquil
+              escape for discerning travelers. Experience comfort, hospitality,
+              and the beauty of our surroundings at Casa Vista.
+            </div>
           </div>
         </div>
-      </div>
-      <div class="right-side">
-        <form class="login-form bg-tertiary" id="login-form" method="post">
-          <h1 class="text-secondary">Log in to get started!</h1>
-          <div class="input-group">
-            <label for="username" class="text-secondary">Username</label>
-            <input
-              type="text"
-              id="username"
-              name="username"
-              placeholder="Enter your username"
-              required
-            />
-          </div>
-          <div class="input-group">
-            <label for="password" class="text-secondary">Password</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              placeholder="Enter your password"
-              required
-            />
-          </div>
-          <input type="hidden" name="login_type" id="login_type" value="" />
-          <button
-            class="login-button btn-secondary"
-            type="submit"
-            id="login-btn-student"
-          >
-            Log in
-          </button>
-          <a href="../index.html" class="text-primary font-md1"
-            >Back to homepage</a
-          >
-          <div class="dont-have-acc-text text-secondary">
-            Don't have an account?
-          </div>
+        <div class="right-side">
+          <form class="login-form" id="login-form" method="post">
+            <div class="form-img">
+              <img src="../img/logo-header.png" alt="" />
+            </div>
+            <h1>Welcome to Casa Vista!</h1>
+            <div class="input-group">
+              <label for="username">Username</label>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Enter your username"
+                required
+              />
+            </div>
+            <div class="input-group password-group">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+                required
+              />
+              <div class="fa fa-fw fa-eye field-icon toggle-password" id="togglePassword"></div>
+            </div>
+            <input type="hidden" name="login_type" id="login_type" value="" />
+            <div class="register-wrap">
+              <div class="dont-have-acc-text">Don't have an account?</div>
 
-          <div class="signup-link">
-            <a href="#" class="text-primary" id="signup-btn">Sign up</a>
-          </div>
-        </form>
+              <div class="signup-link">
+                <a  id="signup-btn"> Sign up</a>
+              </div>
+            </div>
+            <div class="button-con">
+              <button
+                class="login-button btn-secondary"
+                type="submit"
+                id="login-btn-student"
+              >
+                Log in
+              </button>
+            </div>
+            <!-- <a href="../index.html">Back to homepage</a> -->
+          </form>
+        </div>
       </div>
     </main>
 
@@ -83,21 +84,45 @@
         <form id="add-user-form" method="POST">
           <div class="form-group">
             <label for="new-username">Username:</label>
-            <input type="text" id="new-username" name="new-username" placeholder="Enter username" required />
+            <input
+              type="text"
+              id="new-username"
+              name="new-username"
+              placeholder="Enter username"
+              required
+            />
           </div>
 
           <div class="form-group">
             <label for="new-password">Password:</label>
-            <input type="password" id="new-password" placeholder="Enter password" name="new-password" required />
+            <input
+              type="password"
+              id="new-password"
+              placeholder="Enter password"
+              name="new-password"
+              required
+            />
           </div>
 
           <div class="form-group">
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="Enter email" required>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter email"
+              required
+            />
           </div>
           <div class="form-group">
             <label for="name">Full Name:</label>
-            <input type="text" id="name" name="name" placeholder="Enter full name" required>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Enter full name"
+              required
+            />
           </div>
           <div class="form-group">
             <label for="role">Role:</label>
@@ -111,7 +136,6 @@
           </div>
         </form>
       </div>
-
     </div>
     <script src="../scripts/login/login-and-register.js" type="module"></script>
   </body>
