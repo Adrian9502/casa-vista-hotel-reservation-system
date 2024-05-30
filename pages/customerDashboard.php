@@ -35,6 +35,7 @@ if (isset($_SESSION['username'])) {
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="../styles/footer.css">
   <link rel="stylesheet" href="../styles/customerDashboard/hotel-images.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body class="bg-secondary">
@@ -52,7 +53,7 @@ if (isset($_SESSION['username'])) {
       <a class="text-primary font-md1" href="#rooms">Rooms</a>
       <a class="text-primary font-md1" id="myReservation">My Reservations</a>
       <a class="text-primary font-md1" href="#about">About</a>
-      <a class="text-primary font-md1" href="#about">Contact</a>
+      <a class="text-primary font-md1" id="feedback">Feedback</a>
       <a class="text-primary font-md1" href="../accounts/logout.php">Log out</a>
       <span class="user-container-mobile">
         <i class='bx bxs-user'></i>
@@ -423,7 +424,7 @@ if (isset($_SESSION['username'])) {
 
   </div>
   <!-- Overlay -->
-  <div class="overlay" id="overlay"></div>
+  <div class="overlay " id="overlay"></div>
   <!-- Room Booking form -->
   <div class="booking-form-container fade-in-bck" id="bookingFormContainer">
     <form id="bookingForm" class="booking-form">
@@ -476,6 +477,8 @@ if (isset($_SESSION['username'])) {
   </div>
   <!-- Overlay -->
   <div class="overlay overlay1" id="overlay1"></div>
+  <!-- Overlay -->
+  <div class="overlay overlay2" id="overlay2"></div>
   <!-- My Reservation -->
   <!-- Pop up reservation -->
   <?php
@@ -540,7 +543,74 @@ if (isset($_SESSION['username'])) {
       <?php } ?>
     </div>
   </div>
+  <!-- feedback -->
+  <?php
+  include("../accounts/db.php");
+  // Query to fetch user's feedback
+  $sql = "SELECT username, rating, feedback FROM feedback";
+  $result = $conn->query($sql);
 
+
+  ?>
+  <div class="feedback-container fade-in-bck" id="feedbackContainer">
+    <div class="form-header">
+      <h2 class="form-title">Feedback</h2>
+      <button class="close-button" title="close" id="closeConButton-feedback">×</button>
+    </div>
+    <div class="feedback-details">
+      <div class="feedback-left">
+        <h3>Other Feedback</h3>
+        <?php
+        if ($result->num_rows > 0) {
+          while ($row = $result->fetch_assoc()) {
+        ?>
+            <div class="feedback-box">
+              <div class="feedback-header">
+                <div class="feedback-info">
+                  <p class="feedback-name"><?php echo $row['username']; ?></p>
+                  <p class="feedback-rating">
+                    <?php
+                    $rating = $row['rating'];
+                    for ($i = 1; $i <= 5; $i++) {
+                      if ($i <= $rating) {
+                        echo '<span class="fa fa-star checked"></span>';
+                      } else {
+                        echo '<span class="fa fa-star"></span>';
+                      }
+                    }
+                    ?>
+                  </p>
+                </div>
+                <p class="feedback-text"><?php echo $row['feedback']; ?></p>
+              </div>
+            </div>
+        <?php
+          }
+        } else {
+          echo "No feedback available.";
+        }
+        ?>
+      </div>
+      <div class="feedback-right">
+        <form class="feedback-form" id="feedbackForm">
+          <div class="rating-con">
+            <label for="rating" class="rating-label">Rating:</label>
+            <!-- Include a hidden input field for user_id -->
+            <input type="hidden" id="username" name="username" value="<?php echo $_SESSION['username']; ?>">
+            <select class="rating" id="starRating">
+              <option value="1">⭐</option>
+              <option value="2">⭐⭐</option>
+              <option value="3">⭐⭐⭐</option>
+              <option value="4">⭐⭐⭐⭐</option>
+              <option value="5">⭐⭐⭐⭐⭐</option>
+            </select>
+          </div>
+          <textarea id="description" name="description" rows="6" required placeholder="Put your feedback here.."></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
 
   <!-- About and contact -->
   <footer class="footer-container bg-tertiary">

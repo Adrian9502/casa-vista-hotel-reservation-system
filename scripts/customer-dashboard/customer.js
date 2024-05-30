@@ -61,6 +61,7 @@ function formPopUp() {
       if (bookingFormContainer) {
         bookingFormContainer.style.display = "block";
         overlay.style.display = "block";
+        document.body.style.overflow = "hidden";
       }
     }
 
@@ -69,6 +70,7 @@ function formPopUp() {
       if (bookingFormContainer) {
         bookingFormContainer.style.display = "none";
         overlay.style.display = "none";
+        document.body.style.overflow = "auto";
       }
     }
 
@@ -137,7 +139,7 @@ function roomOptionFetch() {
       }
     });
 }
-
+// my reservation pop up
 function reservationPopUp() {
   document.addEventListener("DOMContentLoaded", function () {
     const showReservationButton = document.getElementById("myReservation");
@@ -151,6 +153,7 @@ function reservationPopUp() {
       if (reservationContainer) {
         reservationContainer.style.display = "block";
         overlay1.style.display = "block";
+        document.body.style.overflow = "hidden";
       }
     }
 
@@ -159,6 +162,7 @@ function reservationPopUp() {
       if (reservationContainer) {
         reservationContainer.style.display = "none";
         overlay1.style.display = "none";
+        document.body.style.overflow = "auto";
       }
     }
 
@@ -183,60 +187,61 @@ function reservationPopUp() {
     });
   });
 }
+// function to handle room booking
+function bookRoomReservation() {
+  // Listen for form submission
+  document
+    .getElementById("bookingForm")
+    .addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent the default form submission behavior
 
-// Listen for form submission
-document
-  .getElementById("bookingForm")
-  .addEventListener("submit", function (event) {
-    event.preventDefault(); // Prevent the default form submission behavior
+      const userId = document.getElementById("user_id").value;
+      const roomId = document.getElementById("roomSelect").value;
+      const checkIn = document.getElementById("checkIn").value;
+      const checkOut = document.getElementById("checkOut").value;
 
-    const userId = document.getElementById("user_id").value;
-    const roomId = document.getElementById("roomSelect").value;
-    const checkIn = document.getElementById("checkIn").value;
-    const checkOut = document.getElementById("checkOut").value;
+      const formData = new FormData();
 
-    const formData = new FormData();
+      formData.append("user_id", userId);
+      formData.append("room_id", roomId);
+      formData.append("check_in", checkIn);
+      formData.append("check_out", checkOut);
 
-    formData.append("user_id", userId);
-    formData.append("room_id", roomId);
-    formData.append("check_in", checkIn);
-    formData.append("check_out", checkOut);
-
-    fetch("../../hotel_reservation_system/accounts/bookRoom.php", {
-      method: "POST",
-      body: formData,
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.text();
+      fetch("../../hotel_reservation_system/accounts/bookRoom.php", {
+        method: "POST",
+        body: formData,
       })
-      .then((text) => {
-        if (text.includes("Room Booking Successful!")) {
-          sweetalert2
-            .fire({
-              title: "Success!",
-              text: "Room Booking Successful!",
-              icon: "success",
-            })
-            .then(() => {
-              window.location.reload();
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.text();
+        })
+        .then((text) => {
+          if (text.includes("Room Booking Successful!")) {
+            sweetalert2
+              .fire({
+                title: "Success!",
+                text: "Room Booking Successful!",
+                icon: "success",
+              })
+              .then(() => {
+                window.location.reload();
+              });
+          } else {
+            sweetalert2.fire({
+              title: "Error!",
+              text: text,
+              icon: "error",
             });
-        } else {
-          sweetalert2.fire({
-            title: "Error!",
-            text: text,
-            icon: "error",
-          });
-        }
-      })
-      .catch((error) => {
-        alert("Error saving form");
-        console.error("Error saving form data:", error);
-      });
-  });
-
+          }
+        })
+        .catch((error) => {
+          alert("Error saving form");
+          console.error("Error saving form data:", error);
+        });
+    });
+}
 // function to cancel the customer reservation
 function cancelReservation() {
   document.addEventListener("DOMContentLoaded", function () {
@@ -246,52 +251,138 @@ function cancelReservation() {
       button.addEventListener("click", function () {
         const reservationId = this.getAttribute("data-reservation-id");
 
-        sweetalert2.fire({
-          title: "Confirm Cancel",
-          text: "You won't be able to revert this!",
-          icon: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "orange",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Yes, Cancel it!",
-        }).then((result) => {
-          if (result.isConfirmed) {
-            fetch(
-              "../../hotel_reservation_system/pages/reservation-management/deleteReservation.php",
-              {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/x-www-form-urlencoded",
-                },
-                body: `reservation-id=${reservationId}`,
-              }
-            )
-              .then((response) => response.text())
-              .then((data) => {
-                sweetalert2.fire({
-                  title: "Deleted!",
-                  text: "Your reservation has been cancelled.",
-                  icon: "success",
-                }).then(() => {
-                  location.reload();
+        sweetalert2
+          .fire({
+            title: "Confirm Cancel",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "orange",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Cancel it!",
+          })
+          .then((result) => {
+            if (result.isConfirmed) {
+              fetch(
+                "../../hotel_reservation_system/pages/reservation-management/deleteReservation.php",
+                {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                  },
+                  body: `reservation-id=${reservationId}`,
+                }
+              )
+                .then((response) => response.text())
+                .then((data) => {
+                  sweetalert2
+                    .fire({
+                      title: "Deleted!",
+                      text: "Your reservation has been cancelled.",
+                      icon: "success",
+                    })
+                    .then(() => {
+                      location.reload();
+                    });
+                })
+                .catch((error) => {
+                  sweetalert2.fire({
+                    title: "Error!",
+                    text: "There was an error cancelling your reservation.",
+                    icon: "error",
+                  });
+                  console.error("Error:", error);
                 });
-              })
-              .catch((error) => {
-                sweetalert2.fire({
-                  title: "Error!",
-                  text: "There was an error cancelling your reservation.",
-                  icon: "error",
-                });
-                console.error("Error:", error);
-              });
-          }
-        });
+            }
+          });
       });
     });
   });
 }
+// my reservation pop up
+function feedbackPopUp() {
+  document.addEventListener("DOMContentLoaded", function () {
+    const showReservationButton = document.getElementById("feedback");
+    const overlay2 = document.querySelector(".overlay2");
+    const feedbackContainer = document.getElementById("feedbackContainer");
+
+    // Function to show the form and overlay
+    function showForm() {
+      if (feedbackContainer) {
+        feedbackContainer.style.display = "block";
+        overlay2.style.display = "block";
+        document.body.style.overflow = "hidden";
+      }
+    }
+
+    // Function to hide the form and overlay
+    function hideForm() {
+      if (feedbackContainer) {
+        feedbackContainer.style.display = "none";
+        overlay2.style.display = "none";
+        document.body.style.overflow = "auto";
+      }
+    }
+
+    // Add click event listener to each "Feedback" button
+    showReservationButton.addEventListener("click", function (event) {
+      showForm();
+    });
+
+    // Add click event listener to the close button
+    const closeConButton = document.getElementById("closeConButton-feedback");
+    if (closeConButton) {
+      closeConButton.addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent default action
+        hideForm();
+      });
+    }
+
+    // Add click event listener to the overlay to close the form
+    overlay2.addEventListener("click", function (event) {
+      event.preventDefault(); // Prevent default action
+      hideForm();
+    });
+  });
+}
+
+function ratingFetch() {
+  // Form submission
+  const feedbackForm = document.getElementById("feedbackForm");
+  feedbackForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    // contain all the form data
+    const selectedRating = document.querySelector("#starRating").value;
+    const formData = new FormData(feedbackForm);
+    formData.append("rating", selectedRating);
+    // Fetch the feedback.php file
+    fetch("../../hotel_reservation_system/accounts/feedBack.php", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.text())
+      .then((data) => {
+        console.log(data);
+        if (data.includes("Feedback submitted successfully")) {
+          console.log("Feedback submitted successfully");
+          // Optionally, you can display a success message to the user or redirect them to another page
+        } else {
+          console.error("Feedback submission failed", data);
+          // Optionally, you can display an error message to the user
+        }
+      })
+      .catch((error) => {
+        console.error("Error submitting feedback:", error);
+        // Optionally, you can display an error message to the user
+      });
+  });
+}
+
+ratingFetch();
 cancelReservation();
 animation();
 reservationPopUp();
+feedbackPopUp();
 roomOptionFetch();
+bookRoomReservation();
 formPopUp();
