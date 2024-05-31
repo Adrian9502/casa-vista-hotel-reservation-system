@@ -299,7 +299,7 @@ function cancelReservation() {
     });
   });
 }
-// my reservation pop up
+// feedback pop up
 function feedbackPopUp() {
   document.addEventListener("DOMContentLoaded", function () {
     const showReservationButton = document.getElementById("feedback");
@@ -346,7 +346,7 @@ function feedbackPopUp() {
   });
 }
 
-function ratingFetch() {
+function feedbackFetch() {
   // Form submission
   const feedbackForm = document.getElementById("feedbackForm");
   feedbackForm.addEventListener("submit", (event) => {
@@ -356,29 +356,44 @@ function ratingFetch() {
     const formData = new FormData(feedbackForm);
     formData.append("rating", selectedRating);
     // Fetch the feedback.php file
-    fetch("../../hotel_reservation_system/accounts/feedBack.php", {
+    fetch("../../hotel_reservation_system/accounts/feedBackFetch.php", {
       method: "POST",
       body: formData,
     })
       .then((response) => response.text())
       .then((data) => {
-        console.log(data);
         if (data.includes("Feedback submitted successfully")) {
-          console.log("Feedback submitted successfully");
-          // Optionally, you can display a success message to the user or redirect them to another page
+          sweetalert2
+            .fire({
+              title: "Success!",
+              text: "Feedback submitted successfully",
+              icon: "success",
+            })
+            .then(() => {
+              window.location.reload();
+            });
         } else {
           console.error("Feedback submission failed", data);
-          // Optionally, you can display an error message to the user
+          sweetalert2.fire({
+            title: "Error!",
+            text: "Feedback submission failed",
+            data,
+            icon: "error",
+          });
         }
       })
       .catch((error) => {
-        console.error("Error submitting feedback:", error);
-        // Optionally, you can display an error message to the user
+        sweetalert2.fire({
+          title: "Error!",
+          text: "Feedback submission failed",
+          error,
+          icon: "error",
+        });
       });
   });
 }
 
-ratingFetch();
+feedbackFetch();
 cancelReservation();
 animation();
 reservationPopUp();

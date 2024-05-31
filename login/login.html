@@ -7,23 +7,21 @@
     <link rel="shortcut icon" href="../img/icon.png" type="image/x-icon" />
     <link rel="stylesheet" href="../styles/login.css" />
     <link rel="stylesheet" href="../styles/general.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
 
-  <body>
-    <main class="wrapper">
+  <body class="wrapper">
+    <div class="container-wrap">
       <div class="container">
         <div class="left-side">
           <div class="img-wrapper">
-            <video src="./login-video.mp4" muted autoplay loop alt=""></video>
-          </div>
-          <div class="heading-container">
-            <div class="description ">
-              Welcome to Casa Vista Hotel, where Filipino charm meets modern
-              elegance. Nestled in the Philippines, our hotel and room offers a tranquil
-              escape for discerning travelers. Experience comfort, hospitality,
-              and the beauty of our surroundings at Casa Vista.
-            </div>
+            <img src="https://assets-global.website-files.com/5c6d6c45eaa55f57c6367749/65046bf150d1abb7e5911702_x-65046bcfdc4f0.webp" alt="">
           </div>
         </div>
         <div class="right-side">
@@ -51,36 +49,43 @@
                 placeholder="Enter your password"
                 required
               />
-              <div class="fa fa-fw fa-eye field-icon toggle-password" id="togglePassword"></div>
+              <div
+                class="fa fa-fw fa-eye field-icon toggle-password"
+                id="togglePassword"
+                title="show/hide password"
+              ></div>
             </div>
             <input type="hidden" name="login_type" id="login_type" value="" />
             <div class="register-wrap">
               <div class="dont-have-acc-text">Don't have an account?</div>
 
               <div class="signup-link">
-                <a  id="signup-btn"> Sign up</a>
+                <a id="signup-btn"> Sign up</a>
               </div>
             </div>
             <div class="button-con">
               <button
-                class="login-button btn-secondary"
+                class="login-button"
                 type="submit"
                 id="login-btn-student"
+                title="log in"
               >
                 Log in
               </button>
             </div>
-            <!-- <a href="../index.html">Back to homepage</a> -->
+            <div class="back-con">
+              <a class="back-txt" href="../index.html">&#11164;Back </a>
+              <a id="acc">View test accounts here.</a>
+            </div>
           </form>
         </div>
       </div>
-    </main>
-
+    </div>
     <!-- Registration Form for users -->
     <div class="registration-popup" id="registration-popup">
       <div class="popup fade-in-bck">
-        <span class="close-btn" id="close-btn">&times;</span>
-        <h2>Create New User</h2>
+        <span class="close-btn" title="close" id="close-btn">&times;</span>
+        <h2>Sign up</h2>
         <form id="add-user-form" method="POST">
           <div class="form-group">
             <label for="new-username">Username:</label>
@@ -132,11 +137,39 @@
             </select>
           </div>
           <div class="button-container">
-            <button type="submit">Sign Up</button>
+            <button title="register" class="reg-signup-btn" type="submit">
+              Sign Up
+            </button>
           </div>
         </form>
       </div>
     </div>
+    <!-- Registration Form for users -->
+    <div class="test-popup" id="test-popup">
+      <div class="test fade-in-bck">
+        <span class="close-btn" title="close" id="close-btn-test">&times;</span>
+        <h3>Sample Accounts</h3>
+        <form>
+          <div class="form-group">
+            <div class="text-area-acc" readonly rows="6">
+              <h4>Customer</h4>
+              <div class="custo">
+                <p>User: janedoe</p>
+                <p>Pass: 123</p>
+                <p>User: johndoe</p>
+                <p>Pass: 123</p>
+              </div>
+              <h4>Admin</h4>
+              <div class="custo">
+                <p>User: adminuser</p>
+              <p>Pass: 123</p>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
     <script src="../scripts/login/login-and-register.js" type="module"></script>
   </body>
 </html>

@@ -65,7 +65,7 @@ header {
 }
 
 /* Media query for screens smaller than 620px */
-@media screen and (max-width: 1037px) {
+@media screen and (max-width: 1076px) {
   header {
     padding: 5px;
     gap: 10px;

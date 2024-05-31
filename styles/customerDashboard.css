@@ -554,6 +554,7 @@ body {
 .no-booked {
   font-size: large;
   text-align: center;
+  padding: 20px 40px;
   color: rgb(255, 123, 0);
 }
 
@@ -595,7 +596,9 @@ td:last-child {
   display: flex;
   height: 85%;
 }
-
+.feedback-text{
+  text-wrap: wrap;
+}
 .feedback-left,
 .feedback-right {
   padding: 15px;
@@ -614,6 +617,9 @@ td:last-child {
   padding: 15px;
   border-radius: 5px;
   margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -777,6 +783,13 @@ td:last-child {
   .image-container{
     padding-top: 60px;
   }
+  .reservation-container{
+    margin: 0;
+  }
+  .no-booked {
+    font-size: large;
+    text-align: center;
+    padding: 10px 15px;}
 }
 @media screen and (max-width: 620px ){
   .rooms-grid {
@@ -803,9 +816,14 @@ td:last-child {
 @media screen and (max-width: 520px ){
   .reservation-container{
     width: 80%;
-
   }
   .form-title{
     font-size: 27px;
   }
+}
+@media screen and (max-width: 442px){
+  .reservation-container{
+    margin: 0;
+  }
+  
 }

@@ -22,7 +22,9 @@ function handleAjaxRequest(container) {
     case "user-management":
       phpFile = "../pages/admin-dashboard/user-management.php";
       break;
-
+    case "feedback":
+      phpFile = "../pages/admin-dashboard/feedback.php";
+      break;
     default:
       console.error("Unknown container clicked:", container);
       return;
@@ -152,14 +154,16 @@ function popUpAndFetch(config) {
           // Check the response for different scenarios
           if (data.includes(successMessage)) {
             // User updated successfully
-            sweetalert2.fire({
-              title: "Success!",
-              text: successMessage,
-              icon: "success",
-            }).then(() => {
-              // After showing the success message, fetch the updated data
-              ajaxAfterSubmit(ajaxAfterSubmitUrl);
-            });
+            sweetalert2
+              .fire({
+                title: "Success!",
+                text: successMessage,
+                icon: "success",
+              })
+              .then(() => {
+                // After showing the success message, fetch the updated data
+                ajaxAfterSubmit(ajaxAfterSubmitUrl);
+              });
           } else {
             // Display the error message returned from the server
             sweetalert2.fire({
@@ -169,7 +173,7 @@ function popUpAndFetch(config) {
             });
           }
         })
-        
+
         .catch((error) => {
           console.error("Error:", error);
           if (error.message) {
@@ -189,8 +193,6 @@ function popUpAndFetch(config) {
     }
   });
 }
-
-
 
 // event listener for dynamic dashboard
 document.addEventListener("DOMContentLoaded", function () {
@@ -218,7 +220,6 @@ document.addEventListener("DOMContentLoaded", function () {
   handleSearch("reservation-table", ".search-btn-reservation");
   handleSearch("user-table", ".search-btn-user");
 
-  
   // Recalling pop up and fetch for code reusability
   // ! Hotel Management
   // create hotel
@@ -346,7 +347,7 @@ document.addEventListener("DOMContentLoaded", function () {
     errorMessage: "Error updating user or User ID does not exist.",
     tableId: "#user-table",
     ajaxAfterSubmitUrl:
-    "../../hotel_reservation_system/pages/admin-dashboard/user-management.php",
+      "../../hotel_reservation_system/pages/admin-dashboard/user-management.php",
   });
   // delete user
   popUpAndFetch({
@@ -359,6 +360,6 @@ document.addEventListener("DOMContentLoaded", function () {
     errorMessage: "Error deleting user or User ID does not exist.",
     tableId: "#user-table",
     ajaxAfterSubmitUrl:
-    "../../hotel_reservation_system/pages/admin-dashboard/user-management.php",
+      "../../hotel_reservation_system/pages/admin-dashboard/user-management.php",
   });
 });

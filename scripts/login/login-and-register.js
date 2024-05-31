@@ -1,7 +1,6 @@
 import sweetalert2 from "https://cdn.jsdelivr.net/npm/sweetalert2@11.11.0/+esm";
 // popup registration form
 function popUpRegistration() {
-  // student
   const signupBtn = document.getElementById("signup-btn");
   const registrationPopup = document.getElementById("registration-popup");
 
@@ -10,10 +9,26 @@ function popUpRegistration() {
   signupBtn.addEventListener("click", function (event) {
     event.preventDefault();
     registrationPopup.style.display = "block";
-    document.body.style.overflow = "hidden";
   });
-  closeBtn.addEventListener("click", function () {
+  closeBtn.addEventListener("click", function (event) {
+    event.preventDefault();
     registrationPopup.style.display = "none";
+  });
+}
+// popup account test
+function popUpTestAcc() {
+  const signupBtn = document.getElementById("acc");
+  const testPopup = document.getElementById("test-popup");
+
+  const closeBtn = document.getElementById("close-btn-test");
+
+  signupBtn.addEventListener("click", function (event) {
+    event.preventDefault();
+    testPopup.style.display = "block";
+  });
+  closeBtn.addEventListener("click", function (event) {
+    event.preventDefault();
+    testPopup.style.display = "none";
   });
 }
 // check if login is valid then redirect to dashboard
@@ -71,7 +86,7 @@ function loginFetch() {
 // function to process user registration
 function registrationFetch() {
   document.addEventListener("submit", function (event) {
-    if (event.target && event.target.id === "registration-form") {
+    if (event.target && event.target.id === "add-user-form") {
       event.preventDefault();
 
       // Collect form data
@@ -89,7 +104,7 @@ function registrationFetch() {
         })
         .then((text) => {
           // Check if registration was successful
-          if (text.includes("Registration successful!")) {
+          if (text.includes("New User added successfully!")) {
             sweetalert2.fire({
               title: "Registration Success!",
               text: "Registration successful!",
@@ -126,6 +141,7 @@ function showHidePassword() {
     });
   });
 }
+popUpTestAcc();
 showHidePassword();
 popUpRegistration();
 registrationFetch();

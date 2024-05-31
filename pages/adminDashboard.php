@@ -1,6 +1,7 @@
-<!-- THIS FILE WILL LOAD IF THE LOGGED IN USER IS ADMIN -->
 <?php
 session_start();
+
+// <!-- THIS FILE WILL LOAD IF THE LOGGED IN USER IS ADMIN -->
 
 // if logged in as customer, return to login page
 if ($_SESSION['role'] !== 'admin') {
@@ -87,6 +88,13 @@ if (isset($_SESSION['username'])) {
           </div>
         </li>
 
+        <li class="list">
+          <div class="nav-link feedback">
+          <i class='bx bxs-user-voice icon' ></i>
+            <span class="link">Feedback</span>
+          </div>
+        </li>
+
 
         <li class="list">
           <a href=".././accounts/logout.php" class="nav-link log-out">
@@ -162,17 +170,15 @@ if (isset($_SESSION['username'])) {
           </div>
 
         </div>
-        <a href=".././accounts/logout.php">
-          <div class="grid">
-            <i class="bx bx-log-out grid-icon"></i>
+          <div class="grid feedback">
+          <i class='bx bxs-user-pin grid-icon'></i>
             <div class="grid-title">
-              Log out
+              Feedback
             </div>
             <div class="grid-description">
-              Logout and back to the login page.
+              View customers feedback.
             </div>
           </div>
-        </a>
       </div>
 
     </div>
