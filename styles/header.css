@@ -23,7 +23,8 @@ header {
 
 .header-right {
   gap: 20px;
-  flex: 1;
+
+  justify-content: end;
   padding: 20px;
 }
 
