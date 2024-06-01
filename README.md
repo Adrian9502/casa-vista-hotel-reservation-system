@@ -15,6 +15,24 @@ Live Project link via 000webhost - https://casavista.000webhostapp.com/hotel_res
 
 if the website doesn't load, try a different browser.
 
+# Casa Vista Hotel Reservation System
+
+## Instructions for Setting Up Locally
+
+Before using this file in your local server, follow these steps:
+
+1. Download all the files.
+
+2. Navigate to your XAMPP installation directory and locate the `htdocs` folder.
+
+3. Create a new folder named `hotel_reservation_system` inside the `htdocs` folder.
+
+4. Copy all the downloaded files into the `hotel_reservation_system` folder.
+
+5. You can now access the project by navigating to `http://localhost/hotel_reservation_system` in your web browser.
+
+Happy coding!
+
 ## Development Tools
 
 -XAMPP: Used for setting up a local server environment.
@@ -31,6 +49,7 @@ Unsplash: Used for hotel images.
 ## Project Overview
 
 The "Hotel Reservation System" is a web application designed to manage hotel bookings, allowing users to book rooms, manage reservations, and access hotel information conveniently online. It targets both customers and hotel administrators, enhancing the booking process through a user-friendly interface.
+
 
 ### Frontend Files
 
