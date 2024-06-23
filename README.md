@@ -55,7 +55,10 @@ The "Hotel Reservation System" is a web application designed to manage hotel boo
 - **PHP**: Used for server-side processing and database interaction.
 - **MySQL**: Used for database management.
 
-## Video Presentation
+## Video Presentation Link
 
 Please see the attached video presentation demonstrating the features and functionality of the project.
 
+Gdrive:
+
+https://drive.google.com/drive/folders/1wsNiLeH3azpjtBTM7OoD1ZATzFm5Eqgb?fbclid=IwAR1pVJhK00C5hLfE2J355J6xp_mkggraNwH7X60WUwPdQ2O7obaqJ3iZrFc
